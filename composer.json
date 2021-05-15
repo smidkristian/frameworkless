@@ -1,0 +1,13 @@
+{
+    "name": "smidkristian/landing",
+    "authors": [
+        {
+            "name": "smidkristian",
+            "email": "smid.kristian@gmail.com"
+        }
+    ],
+    "require": {
+        "phpmailer/phpmailer": "^6.4",
+        "steveclifton/phpcsrftokens": "^1.4"
+    }
+}

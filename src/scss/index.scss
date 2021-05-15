@@ -8,3 +8,8 @@ body {
     align-items: center;
     height: 100vh;
 }
+
+.flex-col {
+    display: flex;
+    flex-direction: column;
+}

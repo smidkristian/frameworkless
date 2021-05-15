@@ -1,0 +1,8 @@
+{
+    "scripts": {
+        "build:html": "posthtml -c posthtml.json",
+        "watch:html": "onchange \"src/views\" -- npm run build:html",
+        "serve": "browser-sync start --server \"dist\" --files \"dist\""
+    }
+    
+}

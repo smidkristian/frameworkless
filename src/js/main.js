@@ -1,3 +1,2 @@
-import hello_world from "./hello_world";
+import validate from "./validate";
 
-hello_world();
