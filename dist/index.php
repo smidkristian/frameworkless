@@ -15,17 +15,17 @@
     <title>Landing</title>
 </head>
 <body>
-    <div class="flex-col">
-        <form id="contact-form" class="flex-col">
+    <div>
+        <form id="contact-form">
 
             <h2>Contact us</h2>
 
-            <input type="hidden" id="token" name="token" value="<?php echo $token; ?>" />
-            <label>Name:</label> 
-            <input name="name" id="name" type="text" />
-            <label>Email:</label> 
-            <input style="cursor: pointer;" name="email" id="email" type="email" />
-            <button type="submit" id="submit-btn">Send</button>
+            <input type="hidden" name="token" value="<?php echo $token; ?>" />
+            <!-- <label>Name:</label>  -->
+            <input name="name" type="text" class="input" placeholder="Name" />
+            <!-- <label>Email:</label>  -->
+            <input name="email" type="email" class="input" placeholder="Email" />
+            <button style="cursor: pointer;" type="submit" id="submit-btn" class="button">Send</button>
         </form>
     </div>
     <script src="./bundle.js"></script>

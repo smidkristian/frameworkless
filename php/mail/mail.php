@@ -30,9 +30,10 @@
             $mail->addAddress('recipient1@mailtrap.io', 'Tim');
             $mail->addCC('cc1@example.com', 'Elena');
             $mail->addBCC('bcc1@example.com', 'Alex');
-            // custom
-            $mail->AddBCC('bcc2@example.com', 'Anna');
-            $mail->AddBCC('bcc3@example.com', 'Mark');  
+            
+            // // custom
+            // $mail->AddBCC('bcc2@example.com', 'Anna');
+            // $mail->AddBCC('bcc3@example.com', 'Mark');  
 
             // setting a subject
             $mail->Subject = 'Test Email via Mailtrap SMTP using PHPMailer';
