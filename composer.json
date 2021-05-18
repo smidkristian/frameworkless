@@ -7,7 +7,6 @@
         }
     ],
     "require": {
-        "phpmailer/phpmailer": "^6.4",
-        "steveclifton/phpcsrftokens": "^1.4"
+        "phpmailer/phpmailer": "^6.4"
     }
 }

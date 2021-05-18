@@ -54,17 +54,18 @@ $( function () {
             $("#send").addClass("hidden");
             $("#spinner").removeClass("hidden");
 
-            $.post('/NewEmail.php', contactFormValues)
+            $.post('/php/mail/NewEmail.php', contactFormValues)
     
             .then(function (response) {
                 const message = JSON.parse(response)
                 if (message.success) {
                     $("#spinner").addClass("hidden");
                     $("#email-success").removeClass("hidden");
-                }
-                if (message.error) {
+                } else if (message.error) {
                     $("#spinner").addClass("hidden");
                     $("#email-failed").removeClass("hidden");
+                } else {
+                    console.log(response);
                 }
             });
         }

@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-require_once __DIR__.'/../php/mail/mail.php';
+require_once __DIR__.'/Mail.php';
 
 $errors = [];
 
