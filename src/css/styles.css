@@ -1,0 +1,37 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+.spinner {
+    position: relative;
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+    border: 1px solid #2d3033;
+    border-radius: 50%;
+    border-top-width: 0;
+    
+    animation: spin 0.75s infinite linear;
+  }
+  .spinner::before, .spinner::after {
+    left: -2px;
+    top: -2px;
+    display: none;
+    position: absolute;
+    content: '';
+    width: inherit;
+    height: inherit;
+    border: inherit;
+    border-radius: inherit;
+  }
+  
+  /* Keyframes for the animation */
+  
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }

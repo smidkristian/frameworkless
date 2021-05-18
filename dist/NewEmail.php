@@ -7,7 +7,6 @@ $errors = [];
 
 if (!hash_equals($_SESSION['csrfToken'], $_POST['token'])) {
     echo 'Error! CSRF attack detected';
-    // redirection to access denied page or any other logic
     exit();
 }
 
@@ -16,13 +15,13 @@ if (!empty($_POST)) {
     $email = $_POST['email'];
 
     if (empty($name)) {
-        $errors[] = 'Name is required';
+        $errors[] = 'Name field is required.';
     }
 
     if (empty($email)) {
-        $errors[] = 'Email is required';
+        $errors[] = 'Email field is required.';
     } else if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $errors[] = 'Email is invalid';
+        $errors[] = 'Email is invalid.';
     }
 
     if (!empty($errors)) {
@@ -33,6 +32,4 @@ if (!empty($_POST)) {
         $newEmail = $mail->sendMail();
         echo $newEmail;
     }
-} else {
-    echo 'No data';
 }

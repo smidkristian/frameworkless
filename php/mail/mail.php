@@ -57,10 +57,9 @@
             // $mail->addAttachment('path/to/invoice2.pdf', 'invoice2.pdf');
 
             if ($mail->send()) {
-                return 'Message has been sent';
+                return json_encode([ "success" => 'Message has been sent.' ]);
             } else {
-                return 'Message could not be sent.';
-                return 'Mailer Error: ' . $mail->ErrorInfo;
+                return json_encode([ "error" => "Mailer Error: " . $mail->ErrorInfo ]);
             }
         }
     }

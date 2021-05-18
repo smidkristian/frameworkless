@@ -1,5 +1,5 @@
 const validate = require("validate.js");
-const $ = require( "jquery" );
+let $ = require("jquery");
 
 const contactFromConstraints = {
     name: {
@@ -14,30 +14,60 @@ const contactFromConstraints = {
     },
 };
 
-const contactForm = document.getElementById('contact-form');
+$( function () {
 
-contactForm.addEventListener('submit', function (event) {
-    event.preventDefault();
-    const contactFormValues = {
-        name: contactForm.elements.name.value,
-        email: contactForm.elements.email.value,
-        token: contactForm.elements.token.value
-    };
+    $("#contact-form").on("submit", function(event) {
+        
+        event.preventDefault();
 
-    const errors = validate(contactFormValues, contactFromConstraints);
-    if (errors) {
+        // for the next submission
+        if (!$("#name-error").hasClass("hidden")) {
+            $("#name-error").addClass("hidden");
+        }
+        if (!$("#email-error").hasClass("hidden")) {
+            $("#email-error").addClass("hidden");
+        }
+        if (!$("#email-success").hasClass("hidden")) {
+            $("#email-success").addClass("hidden");
+            $("#send").removeClass("hidden");
+        }
+        if (!$("#email-failed").hasClass("hidden")) {
+            $("#email-failed").addClass("hidden");
+            $("#send").removeClass("hidden");
+        }
 
-        console.log(errors)
+        const contactFormValues = {
+            name: $("#name").val(),
+            email: $("#email").val(),
+            token: $("#token").val()
+        };
+    
+        const errors = validate(contactFormValues, contactFromConstraints);
+        if (errors) {
+            if (errors.name) {
+                $("#name-error").removeClass("hidden");
+            }
+            if (errors.email) {
+                $("#email-error").removeClass("hidden");
+            }
+        } else {
+            $("#send").addClass("hidden");
+            $("#spinner").removeClass("hidden");
 
-    } else {
-        $.post('/validate.php', contactFormValues)
-
+            $.post('/NewEmail.php', contactFormValues)
+    
             .then(function (response) {
-            console.log(response);
-        })
-            .catch(function (error) {
-            console.log(error);
-        });
-    }
-
-}, false);
+                const message = JSON.parse(response)
+                if (message.success) {
+                    $("#spinner").addClass("hidden");
+                    $("#email-success").removeClass("hidden");
+                }
+                if (message.error) {
+                    $("#spinner").addClass("hidden");
+                    $("#email-failed").removeClass("hidden");
+                }
+            });
+        }
+    
+    });
+});
