@@ -25,11 +25,14 @@
             
             // email headers
             $mail->setFrom( 'eventu@lity.cz' , 'Eventuality');
-            $mail->addReplyTo( $this->emailTo , $this->name );
+            // $mail->addReplyTo( $this->emailTo , $this->name );
 
-            $mail->addAddress('recipient1@mailtrap.io', 'Tim');
+            $mail->addAddress($this->emailTo, $this->name);
             $mail->addCC('cc1@example.com', 'Elena');
             $mail->addBCC('bcc1@example.com', 'Alex');
+
+            $mail->Encoding = 'base64';
+            $mail->CharSet = 'UTF-8';
             
             // // custom
             // $mail->AddBCC('bcc2@example.com', 'Anna');
@@ -42,15 +45,12 @@
             $mail->isHTML(true);
 
             // content
-            $mailContent = 
+            $template = file_get_contents('./content.html');
+            $msg = str_replace('{ NAME }', $this->name, $template);
+            $mail->Body = $msg;
 
-            "<h1>Send HTML Email using SMTP in PHP</h1>
-            <p>This is a test email sent using SMTP mail server with PHPMailer.</p>";
-
-            $mail->Body = $mailContent;
-
-            // // external content
-            // $mail->msgHTML(file_get_contents('./content.html'), __DIR__);
+            // external content
+            // $mail->msgHTML(file_get_contents('./content.html'));
 
             // // attach files
             // $mail->addAttachment('path/to/invoice1.pdf', 'invoice1.pdf');

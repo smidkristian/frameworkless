@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<style>
+    body {
+        font-family: Helvetica, sans-serif;
+    }
+    .card {
+        margin: 1rem 0.5rem;
+        padding: 1rem 0.5rem;
+        background-color: #f3f4f6; 
+        border-radius: 8px;
+        -webkit-box-shadow: 0px 12px 9px -9px rgba(48,48,48,0.3);
+        -moz-box-shadow: 0px 12px 9px -9px rgba(48,48,48,0.3);
+        box-shadow: 0px 12px 9px -9px rgba(48,48,48,0.3);
+    }
+    .heading {
+        padding: 0 2rem;
+        font-size: 2rem;
+    }
+    .text {
+        padding: 1rem;
+        font-size: 0.8rem;
+        line-height: 1.2rem;
+    }
+    @media screen and (min-width: 768px) {
+        .card {
+            margin: 4rem 8rem;
+            height: 40vh;
+        }
+        .heading {
+            margin: 4rem 8rem;
+            font-size: 1rem;
+            font-size: 3rem;
+        }
+        .text {
+            padding: 2rem;
+            line-height: 1.2rem;
+        }
+    }
+    @media screen and (min-width: 1200px) {
+        .card {
+            margin: 4rem 14rem;
+            padding: 6rem 8rem; 
+            height: 40vh;
+        }
+        .heading {
+            margin: 4rem 14rem;
+            padding: 0 8rem;
+            font-size: 3rem;
+        }
+    }
+    
+</style>
+<body>
+    <h1 class="heading">Vítejte, { NAME },</h1>
+    <div class="card">
+        <p class="text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum 
+            has been the industry's standard dummy text ever since the 1500s, when an unknown printer 
+            took a galley of type and scrambled it to make a type specimen book. It has survived not only 
+            five centuries, but also the leap into electronic typesetting, remaining essentially 
+            unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem 
+            Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including 
+            versions of Lorem Ipsum.</p>
+    </div>
+</body>
+</html>
